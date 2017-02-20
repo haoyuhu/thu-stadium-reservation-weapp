@@ -1,0 +1,33 @@
+<view class="index">
+  <view class="index-hd">
+    <view class="index-desc">点击预约清单展开预约项，长按修改清单配置或添加新预约项；点击预约项可修改预约项配置。注意更改配置将在15mins后生效。</view>
+  </view>
+  <view class="index-bd">
+    <view class="kind-list">
+      <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+        <view class="kind-list-item">
+          <view id="group-id-{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" data-group-item="{{item}}" bindtap="onGroupTap" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+            <view class="kind-list-text">
+              {{item.name}}
+              <view class="text-font-size-small text-color-deepgray">{{item.brief}}</view>
+            </view>
+            <view class="kind-list-text-right text-color-{{item.available ? 'enable':'disable'}}">{{item.available ? '已启用' : '已停用'}}</view>
+          </view>
+          <view class="kind-list-item-bd {{item.open ? 'kind-list-item-bd-show' : ''}}">
+            <view class="navigator-box {{item.open ? 'navigator-box-show' : ''}}">
+              <block wx:for-items="{{item.candidates}}" wx:for-item="candidate" wx:key="*item">
+                <view hover-start-time="0" hover-stay-time="100" class="navigator navigator-item" data-group-item="{{item}}" data-candidate-item="{{candidate}}" bindtap="onCandidateTap">
+                  <view class="navigator-text text-font-size-small text-color-deepgray">{{weekday[candidate.week]}} {{candidate.wish_start_time}}~{{candidate.wish_end_time}} ({{candidate.fixed ? '固定':candidate.section_start_time + '~' + candidate.section_end_time}})</view>
+                  <view class="navigator-text-right text-font-size-small text-color-{{candidate.available ? 'enable':'disable'}}">{{candidate.available ? '已启用' : '已停用'}}</view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="btn-opt-area">
+    <button type="primary" hover-start-time="0" hover-stay-time="100" bindtap="onCreationButtonTap" disabled="{{!isLogin}}">添加预约清单</button>
+  </view>
+</view>

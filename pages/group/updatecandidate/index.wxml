@@ -1,0 +1,100 @@
+<!--pages/group/updatecandidate/index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells__title">运动类型</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">当前类型</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="onSportTypePickerChanged" value="{{currentSportTypeIndex}}" range="{{sportType}}">
+              <view class="weui-input">{{sportType[currentSportTypeIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">预约周次</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">当前周次</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="onWeekPickerChanged" value="{{currentWeekIndex}}" range="{{weekday}}">
+              <view class="weui-input">{{weekday[currentWeekIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">期望预约时段</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">开始时间</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="onWishStartPickerChanged" value="{{currentWishStartIndex}}" range="{{reservationTime}}">
+              <view class="weui-input">{{reservationTime[currentWishStartIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">结束时间</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="onWishEndPickerChanged" value="{{currentWishEndIndex}}" range="{{reservationTime}}">
+              <view class="weui-input">{{reservationTime[currentWishEndIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">浮动预约时段</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">是否固定时段</view>
+          <view class="weui-cell__ft">
+            <switch checked="{{fixed ? true : false}}" bindchange="onFixedSwitchChanged" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label {{fixed ? 'text-color-disable' : ''}}">开始时间</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="onSectionStartPickerChanged" disabled="{{fixed}}" value="{{currentSectionStartIndex}}" range="{{reservationTime}}">
+              <view class="weui-input {{fixed ? 'text-color-disable' : ''}}">{{reservationTime[currentSectionStartIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label {{fixed ? 'text-color-disable' : ''}}">结束时间</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="onSectionEndPickerChanged" disabled="{{fixed}}" value="{{currentSectionEndIndex}}" range="{{reservationTime}}">
+              <view class="weui-input {{fixed ? 'text-color-disable' : ''}}">{{reservationTime[currentSectionEndIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="page-section-title">备注</view>
+      <view class="textarea-wrp">
+        <textarea bindinput="onTextAreaInput" auto-height placeholder="备注信息(选填)" value="{{remark || ''}}" />
+      </view>
+    </view>
+    <view class="btn-opt-area">
+      <button type="primary" hover-start-time="0" hover-stay-time="100" bindtap="onCreationButtonTap">提交</button>
+    </view>
+  </view>
+</view>

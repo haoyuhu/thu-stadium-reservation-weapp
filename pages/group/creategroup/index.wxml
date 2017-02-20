@@ -1,0 +1,31 @@
+
+<!--pages/group/creategroup/index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells__title">预约清单名称</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" maxlength="40" placeholder="标准愿望单(选填)" bindinput="onNameInput" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">接收预约邮件邮箱</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" placeholder="多个邮箱地址用分号分隔(选填)" bindinput="onMailReceiversInput" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="page-section-title">备注</view>
+      <view class="textarea-wrp">
+        <textarea auto-height placeholder="备注信息(选填)" bindinput="onDescriptionInput" />
+      </view>
+    </view>
+    <view class="btn-opt-area">
+      <button type="primary" hover-start-time="0" hover-stay-time="100" bindtap="onCreationButtonTap">提交</button>
+    </view>
+  </view>
+</view>
