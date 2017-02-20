@@ -128,16 +128,7 @@ Page({
       session_id: app.getSessionId()
     }
     request.success = function () {
-      var accounts = that.data.list;
-      var index = null;
-      var found = accounts.some(function (item, i) {
-        if (item.id == accountId) {
-          item.status = status;
-          return true;
-        }
-        return false;
-      });
-      that.setData({ list: accounts });
+      that.refreshData();
     };
 
     utils.request(request);
