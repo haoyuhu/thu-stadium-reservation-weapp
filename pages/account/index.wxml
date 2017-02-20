@@ -15,7 +15,7 @@
             <view class="page-body-logout" bindtap="onLogout">登出</view>
           </block>
         </view>
-        <view class="kind-list">
+        <view wx:if="{{isLogin === true}}" class="kind-list">
           <block wx:for-items="{{list}}" wx:key="{{item.id}}">
             <view class="kind-list-item">
               <view id="{{item.id}}" class="kind-list-item-hd navigator-item" data-account-item="{{item}}" bindtap="onAccountTap">
@@ -23,7 +23,7 @@
                 {{item.username}} ({{item.student_id}})
                 <view class="text-font-size-small text-color-deepgray">类型: {{userType[item.user_type]}} | 别名: {{item.alias != null ? item.alias : '无'}}</view>
                 </view>
-                <view class="kind-list-text-right text-color-{{item.status == 0 ? 'enable':'disable'}}">{{item.status_str}}</view>
+                <view class="kind-list-text-right text-color-{{item.status == 0 ? 'enable':'disable'}}">{{accountStatus[item.status]}}</view>
               </view>
             </view>
           </block>

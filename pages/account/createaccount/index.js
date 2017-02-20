@@ -1,28 +1,54 @@
-// pages/account/updateaccount/index.js
+// pages/account/createaccount/index.js
+let constants = require('../../../utils/constants.js');
+let utils = require('../../../utils/util.js');
+var app = getApp();
+
 Page({
   data: {
+    accountId: null,
+    studentId: null,
+    username: null,
+    password: null,
+    alias: null,
     currentUserTypeIndex: 0,
-    userType: ['在校学生', '教师职工'],
+    userType: constants.USER_TYPE,
+    phoneNumber: null,
+    email: null,
     remark: ''
   },
-  onLoad: function (options) {
-    // 页面初始化 options为页面跳转所带来的参数
+  onStudentIdInput: function (e) {
+    this.setData({
+      studentId: e.detail.value
+    });
   },
-  onReady: function () {
-    // 页面渲染完成
+  onUsernameInput: function (e) {
+    this.setData({
+      username: e.detail.value
+    });
   },
-  onShow: function () {
-    // 页面显示
+  onPasswordInput: function (e) {
+    this.setData({
+      password: e.detail.value
+    });
   },
-  onHide: function () {
-    // 页面隐藏
+  onAliasInput: function (e) {
+    this.setData({
+      alias: e.detail.value
+    });
   },
-  onUnload: function () {
-    // 页面关闭
+  onPhoneNumberInput: function (e) {
+    this.setData({
+      phoneNumber: e.detail.value
+    });
+  },
+  onEmailInput: function (e) {
+    this.setData({
+      email: e.detail.value
+    });
   },
   onUserTypePickerChanged: function (e) {
     this.setData({
-      currentUserTypeIndex: e.detail.value
+      currentUserTypeIndex: parseInt(e.detail.value)
     });
   },
   onTextAreaInput: function (e) {
@@ -31,6 +57,28 @@ Page({
     });
   },
   onCreationButtonTap: function (e) {
-
+    var that = this;
+    var request = utils.createDefaultRequestCallbacks(null);
+    request.url = 'account';
+    request.method = 'POST';
+    request.data = {
+      session_id: app.getSessionId(),
+      student_id: that.data.studentId,
+      username: that.data.username,
+      password: that.data.password,
+      alias: that.data.alias,
+      user_type: that.data.currentUserTypeIndex,
+      phone_number: that.data.phoneNumber,
+      email: that.data.email,
+      description: that.data.remark
+    };
+    request.success = function (account) {
+      var previous = utils.getPreviousPage();
+      if (previous != null) {
+        previous.refreshData();
+      }
+      wx.navigateBack({ delta: 1 });
+    };
+    utils.request(request);
   }
 })

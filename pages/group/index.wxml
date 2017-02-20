@@ -3,7 +3,7 @@
     <view class="index-desc">点击预约清单展开预约项，长按修改清单配置或添加新预约项；点击预约项可修改预约项配置。注意更改配置将在15mins后生效。</view>
   </view>
   <view class="index-bd">
-    <view class="kind-list">
+    <view wx:if="{{isLogin === true}}" class="kind-list">
       <block wx:for-items="{{list}}" wx:key="{{item.id}}">
         <view class="kind-list-item">
           <view id="group-id-{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" data-group-item="{{item}}" bindtap="onGroupTap" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
@@ -28,6 +28,6 @@
     </view>
   </view>
   <view class="btn-opt-area">
-    <button type="primary" hover-start-time="0" hover-stay-time="100" bindtap="onCreationButtonTap" disabled="{{!isLogin}}">添加预约清单</button>
+    <button type="primary" hover-start-time="0" hover-stay-time="100" bindtap="onCreationButtonTap" disabled="{{isLogin !== true}}">添加预约清单</button>
   </view>
 </view>

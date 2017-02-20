@@ -5,7 +5,6 @@ let utils = require('../../../utils/util.js');
 Page({
   data: {
     queries: {
-      session_id: app.getSessionId(),
       name: null,
       available: true,
       description: null,
@@ -38,6 +37,7 @@ Page({
     request.url = 'group';
     request.method = 'POST';
     request.data = this.data.queries;
+    request.data.session_id = app.getSessionId();
     request.success = function (group) {
       var previous = utils.getPreviousPage();
       if (previous != null) {

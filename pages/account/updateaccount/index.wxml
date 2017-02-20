@@ -4,7 +4,7 @@
       <view class="weui-cells__title">清华学生/教师ID</view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
-          <input class="weui-input" maxlength="10" type="number" placeholder="ID为纯数字,如2014210130" value="{{studentId || ''}}" />
+          <input class="weui-input disabled-input" maxlength="10" type="number" placeholder="ID为纯数字,如2014210130" value="{{studentId || ''}}" disabled="true" />
         </view>
       </view>
     </view>
@@ -12,7 +12,7 @@
       <view class="weui-cells__title">清华学生/教师用户名</view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
-          <input class="weui-input" maxlength="20" type="text" placeholder="用户名为字母+入校年份,如hhy14" value="{{username || ''}}" />
+          <input class="weui-input disabled-input" maxlength="20" type="text" placeholder="用户名为字母+入校年份,如hhy14" value="{{username || ''}}" disabled="true" />
         </view>
       </view>
     </view>
@@ -20,7 +20,7 @@
       <view class="weui-cells__title">账号密码</view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
-          <input class="weui-input" type="password" placeholder="账号密码" value="{{password || ''}}" />
+          <input class="weui-input" type="password" placeholder="账号密码" value="{{password || ''}}" bindinput="onPasswordInput" />
         </view>
       </view>
     </view>
@@ -28,7 +28,7 @@
       <view class="weui-cells__title">账号别名</view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
-          <input class="weui-input" maxlength="50" type="text" placeholder="账号别名" value="{{alias || ''}}" />
+          <input class="weui-input" maxlength="50" type="text" placeholder="账号别名" value="{{alias || ''}}" bindinput="onAliasInput" />
         </view>
       </view>
     </view>
@@ -51,7 +51,7 @@
       <view class="weui-cells__title">手机号码</view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
-          <input class="weui-input" type="number" placeholder="联系方式,用于场馆预订" value="{{phoneNumber || ''}}" />
+          <input class="weui-input" type="number" placeholder="联系方式,用于场馆预订" value="{{phoneNumber || ''}}" bindinput="onPhoneNumberInput" />
         </view>
       </view>
     </view>
@@ -59,7 +59,7 @@
       <view class="weui-cells__title">邮箱地址</view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
-          <input class="weui-input" type="text" placeholder="邮箱地址,用于场馆预订" value="{{email || ''}}" />
+          <input class="weui-input" type="text" placeholder="邮箱地址,用于场馆预订" value="{{email || ''}}" bindinput="onEmailInput" />
         </view>
       </view>
     </view>
