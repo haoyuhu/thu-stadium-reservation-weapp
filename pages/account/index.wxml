@@ -1,0 +1,37 @@
+<view class="index">
+  <view class="container">
+    <view class="page-body">
+      <view class="index-bd">
+        <view class="page-body-info">
+          <block wx:if="{{isLogin === false}}">
+            <view class="page-body-title">用户信息</view>
+            <text class="page-body-text">未获取</text>
+            <text class="page-body-text">点击绿色按钮获取用户信息后可使用预约功能</text>
+            <button type="primary" class="login-btn" hover-start-time="0" hover-stay-time="100" bindtap="onLogin">登录</button>
+          </block>
+          <block wx:if="{{isLogin === true}}">
+            <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+            <view class="page-body-logout" bindtap="onLogout">登出</view>
+          </block>
+        </view>
+        <view class="kind-list">
+          <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+            <view class="kind-list-item">
+              <view id="{{item.id}}" class="kind-list-item-hd navigator-item" data-account-item="{{item}}" bindtap="onAccountTap">
+                <view class="kind-list-text">
+                {{item.username}} ({{item.student_id}})
+                <view class="text-font-size-small text-color-deepgray">类型: {{userType[item.user_type]}} | 别名: {{item.alias != null ? item.alias : '无'}}</view>
+                </view>
+                <view class="kind-list-text-right text-color-{{item.status == 0 ? 'enable':'disable'}}">{{item.status_str}}</view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="btn-opt-area">
+    <button type="primary" hover-start-time="0" hover-stay-time="100" bindtap="onCreationButtonTap" disabled="{{!isLogin}}">添加清华账号</button>
+  </view>
+    </view>
+  </view>
+</view>

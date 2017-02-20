@@ -1,0 +1,35 @@
+@import "../common/index.wxss";
+
+.page-body-info {
+  padding-bottom: 0;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  border-radius: 4rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.userinfo-avatar {
+  border-radius: 256rpx;
+  width: 256rpx;
+  height: 256rpx;
+  margin-top: 28rpx;
+  margin-bottom: 28rpx;
+}
+
+.userinfo-nickname {
+  font-size: 38rpx;
+}
+
+.login-btn {
+    margin-top: 32rpx;
+    padding: 0 64rpx;
+    font-size: 32rpx;
+}
+
+.page-body-logout {
+    margin-top: 12rpx;
+    font-size: 32rpx;
+    color: deepskyblue;
+}

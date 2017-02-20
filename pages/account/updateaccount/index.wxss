@@ -1,0 +1,20 @@
+/* pages/account/updateaccount/index.wxss */
+@import "../../common/lib/weui.wxss";
+@import "../../common/index.wxss";
+
+.page-section {
+  margin-bottom: 20rpx;
+}
+
+textarea {
+  font-size: 34rpx;
+  width: 700rpx;
+  padding: 25rpx 0;
+}
+
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #d9d9d9;
+  border-bottom: 1rpx solid #d9d9d9;
+}

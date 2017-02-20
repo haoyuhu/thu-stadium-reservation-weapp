@@ -1,0 +1,76 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells__title">清华学生/教师ID</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" maxlength="10" type="number" placeholder="必填,ID为纯数字(如2014210130)" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">清华学生/教师用户名</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" maxlength="20" type="text" placeholder="用户名为字母+入校年份(如hhy14)" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">账号密码</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" type="password" placeholder="账号密码" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">账号别名</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" maxlength="50" type="text" placeholder="账号别名(用于记忆)" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">用户类型</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">当前类型</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="onUserTypePickerChanged" value="{{currentUserTypeIndex}}" range="{{userType}}">
+              <view class="weui-input">{{userType[currentSportTypeIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">手机号码</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" type="number" placeholder="联系方式(用于场馆预订)" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">邮箱地址</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" type="text" placeholder="邮箱地址(用于场馆预订)" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="page-section-title">备注</view>
+      <view class="textarea-wrp">
+        <textarea bindinput="onTextAreaInput" auto-height placeholder="备注信息" />
+      </view>
+    </view>
+    <view class="btn-opt-area">
+      <button type="primary" hover-start-time="0" hover-stay-time="100" bindtap="onCreationButtonTap">提交</button>
+    </view>
+  </view>
+</view>
